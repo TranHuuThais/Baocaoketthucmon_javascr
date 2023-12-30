@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">git
+    <title>Burger</title>
+    <link rel="shortcut icon" type="image" href="./public/images/logo.png">
+    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- bootstrap links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- bootstrap links -->
+    <!-- fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <!-- fonts links -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+</head>
+
+<body>
+
+    <!-- home section -->
+    <div class="home-section">
+        <nav class="navbar navbar-expand-lg" id="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" id="logo"><img src="./public/image/logo.png" alt=""
+                        width="30px">BUR<span>GER</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fa-solid fa-bars"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html" id="first-child">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Product-list">Product</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#categories" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                categories
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown"
+                                style="background-color: #ffc800;">
+                                <li><a class="dropdown-item" href="categories.html?categoryId=1">Pizza</a></li>
+                                <li><a class="dropdown-item" href="categories.html?categoryId=2">Hamburger</a></li>
+                                <li><a class="dropdown-item" href="categories.html?categoryId=3">Fried Chicken</a></li>
+                                <li><a class="dropdown-item" href="categories.html?categoryId=4">Drink</a></li>
+                                <li><a class="dropdown-item" href="categories.html?categoryId=5">Rice & Spaghetti</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact Us</a>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex" id="search" action="search.html">
+                        <input name="key" type="search" class="form-control rounded" placeholder="Search"
+                            aria-label="Search">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+
+                    </form>
+                    <div class="icons">
+                        <div class="profile mx-2">
+                            <div id="user-info"></div>
+                            <!-- <button id="logout-button" onclick="performLogout()">Logout</button> -->
+                            <!-- <button id="logout-button" class="btn btn-primary Logout" onclick="performLogout()">Logout</button> -->
+
+                            </ul>
+                            <script>
+                                // Hàm kiểm tra trạng thái đăng nhập và hiển thị thông tin người dùng
+                                function displayUserInfo() {
+                                    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+                                    const userInfoElement = document.getElementById('user-info');
+
+                                    if (isLoggedIn) {
+                                        const name = sessionStorage.getItem('name');
+                                        userInfoElement.innerHTML = ' ' + name;
+
+                                        // Create a logout button
+                                        const logoutButton = document.createElement('button');
+                                        logoutButton.classList.add('btn', 'btn-primary');
+                                        logoutButton.innerHTML = 'Logout';
+                                        logoutButton.addEventListener('click', logout);
+                                        userInfoElement.appendChild(logoutButton);
+
+                                        userInfoElement.style.display = 'block';
+                                    } else {
+                                        const loginLink = document.createElement('a');
+                                        loginLink.classList.add('nav-link');
+                                        loginLink.href = 'login.html';
+                                        loginLink.innerHTML = '<i class="fa-solid fa-user"></i>';
+                                        userInfoElement.appendChild(loginLink);
+                                    }
+                                }
+
+                                // Hàm xử lý logout
+                                function logout() {
+                                    // Clear user information and redirect to the login page
+                                    sessionStorage.removeItem('isLoggedIn');
+                                    sessionStorage.removeItem('name');
+                                    window.location.href = 'index.html';
+                                }
+
+                                // Call the displayUserInfo function when the document is loaded
+                                document.addEventListener('DOMContentLoaded', displayUserInfo);
+                            </script>
+                        </div>
+                        <a class="nav-link" href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- home content -->
+        <section class="home">
+            <div class="content">
+                <h1>Super Delicious
+                    <br> <span>Burger</span>
+                </h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, iste!</p>
+                <div id="btn"><button>Order Now</button> <span>$100.50</span></div>
+            </div>
+            <div class="img">
+                <img src="./public/image/burger.png" alt="">
+            </div>
+        </section>
+        <!-- home content -->
+    </div>
+    <!-- home section -->
+
+
+    <div class="container" id="burger">
+        <div class="row" style="margin-top: 30px;" id="product-list">
+            <!-- <div class="col-md-3 py-3 py-md-0">
+                <div class="card">
+                    <img src="./public/images/p1.png" alt="">
+                    <div class="card-body">
+                        <h3>Italian Pizza</h3>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <h5>$6.50 <span><i class="fa-solid fa-basket-shopping"></i></span></h5>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+    <footer id="footer" style="margin-top: 50px;">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-contact">
+                        <a class="navbar-brand" href="#" id="logo2"><img src="./images/logo.png" alt=""
+                                width="30px">Burger</a>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, libero.</p><br>
+                        <p>
+                            Karachi <br><br>
+                            Sindh <br><br>
+                            Pakistan <br><br>
+                        </p>
+                        <strong><i class="fa-solid fa-phone"></i> Phone: <strong>+0000000000000000</strong></strong><br>
+                        <strong><i class="fa-solid fa-envelope"></i> Email: <strong>example@gmail.com</strong></strong>
+                    </div>
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">Privacy policay</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Services</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, aperiam.</p>
+                        <ul>
+                            <li><a href="#">Pizza</a></li>
+                            <li><a href="#">Fried chicken</a></li>
+                            <li><a href="#">Fries</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+                        <h4>Our Socail Links</h4>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis, minus.</p>
+                        <div class="socail-links mt-3">
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"><i class="fa-brands fa-google-plus"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="container py-4">
+            <div class="copyright">
+                &copy; Copyright <strong>Burger</strong>.All Rights reserved
+            </div>
+            <div class="credits">
+                Designed By <a href="#">SA coding</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- footer -->
+
+
+
+
+
+
+    <a href="#" class="arrow"><i class="fa-solid fa-arrow-up"></i></a>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+<script src="./public/js/search.js"></script>
+
+
+</html>
